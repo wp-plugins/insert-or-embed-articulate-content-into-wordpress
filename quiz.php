@@ -3,7 +3,7 @@
 Plugin Name: Insert or Embed Articulate Content into Wordpress
 Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
 Description:Quickly embed or insert Articulate content into a post or page.
-Version: 1.01
+Version: 1.02
 Author: Brian Batt
 Author URI: http://www.articulatefreak.com
 */
@@ -45,7 +45,7 @@ add_action( 'wp_ajax_del_dir', 'wp_ajax_del_dir' );
 
 
 function wp_myplugin_media_button($context) {
-	$wp_myplugin_media_button_image = getPluginUrl().'/quiz.png';
+	$wp_myplugin_media_button_image = getPluginUrl().'quiz.png';
 	$wp_myplugin_media_button = ' %s' . '<a href="media-upload.php?type=upload&TB_iframe=true&tab=upload" class="thickbox">
   <img src="'.$wp_myplugin_media_button_image.'"  width=15 height=15 /></a>';
 	return sprintf($context, $wp_myplugin_media_button);

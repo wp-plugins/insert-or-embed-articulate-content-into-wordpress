@@ -26,9 +26,9 @@ http://www.screenr.com/zSSs
 
 == Frequently Asked Questions ==
 
-= How do I use this to embed Articulate content? = 
+= How do I use this to embed Articulate content? =
 
-<iframe src="http://www.screenr.com/embed/zSSs" width="500" height="305" frameborder="0"></iframe>
+Check out this screencast:  http://www.screenr.com/zSSs
 
 = Will this work with Articulate Storyline content when it's available? =
 

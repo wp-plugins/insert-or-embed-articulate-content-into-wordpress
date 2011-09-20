@@ -26,6 +26,14 @@ http://www.screenr.com/zSSs
 
 == Frequently Asked Questions ==
 
+= How do I use this to embed Articulate content? = 
+
+<iframe src="http://www.screenr.com/embed/zSSs" width="500" height="305" frameborder="0"></iframe>
+
+= Will this work with Articulate Storyline content when it's available? =
+
+Yes, it will work with Articulate Storyline and many other software programs that export an HTML file with other files.
+
 = How do I get rid of the bars above and below my content? = 
 
 This plugin will automatically set the width of the iframe to 100% and the height to 600 px.  You may need to manually decrease the height in order to display the Articulate content as expected.

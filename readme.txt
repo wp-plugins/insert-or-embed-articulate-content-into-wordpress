@@ -2,7 +2,7 @@
 
 Contributors: Brian Batt
 Donate link: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
-Tags: articulate, presenter, quizmaker, engage, insert, embed, iframe
+Tags: articulate, presenter, quizmaker, engage, storyline, insert, embed, iframe
 Requires at least: 2.0.2
 Tested up to: 3.2.2
 Stable tag: 1.04
@@ -81,7 +81,7 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 
 = 1.04 =
 
-Fixed short tag created when adding Storyline content (story.html)
+Fixed short tag created when adding Storyline content (story.html) (Thanks to David Burton)
 
 Added additional information in the readme.txt on handling the -1 error and other upload errors
 

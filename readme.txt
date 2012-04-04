@@ -82,6 +82,7 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 = 1.04 =
 
 Fixed short tag created when adding Storyline content (story.html)
+
 Added additional information in the readme.txt on handling the -1 error and other upload errors
 
 = 1.03 =

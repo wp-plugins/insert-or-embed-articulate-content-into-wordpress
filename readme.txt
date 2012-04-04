@@ -5,7 +5,7 @@ Donate link: http://www.articulatefreak.com/presenter/insert-or-embed-articulate
 Tags: articulate, presenter, quizmaker, engage, insert, embed, iframe
 Requires at least: 2.0.2
 Tested up to: 3.2.2
-Stable tag: 1.03
+Stable tag: 1.04
  
 Quickly embed or insert Articulate content into a post or page.
 
@@ -32,7 +32,18 @@ Check out this screencast:  http://www.screenr.com/zSSs
 
 = Will this work with Articulate Storyline content when it's available? =
 
-Yes, it will work with Articulate Storyline and many other software programs that export an HTML file with other files.
+Yes, it will work with Articulate Storyline.
+
+= Why does the upload never finish or I get a -1 error message? = 
+
+In order to resolve this issue, you need to update your php.ini to reflect the following:
+
+post_max_size = 50M
+max_execution_time = 60
+max_input_time = 60
+upload_max_filesize = 50M
+
+(These settings will vary depending upon your server and content.  You may need to contact your hosting company to make these changes.) 
 
 = How do I get rid of the bars above and below my content? = 
 
@@ -63,6 +74,11 @@ Yes, we are currently in the process of making this plugin more intuitive.
 The uploaded content is saved into the wp-content / uploads / articulate_uploads folder on your site.  Thus, your uploaded content will not be removed if you delete this plugin.
 
 == Changelog ==
+
+= 1.04 =
+
+Fixed short tag created when adding Storyline content (story.html)
+Added additional information in the readme.txt on handling the -1 error and other upload errors
 
 = 1.03 =
 

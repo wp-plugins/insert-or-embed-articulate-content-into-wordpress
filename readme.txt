@@ -86,7 +86,9 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 = 2.10 =
 
 Added support for Wordpress 3.5
+
 Resolved issue in functions.php caused by using PHP short tags
+
 Resolved some conflicts with jQuery
 
 = 2.00 =

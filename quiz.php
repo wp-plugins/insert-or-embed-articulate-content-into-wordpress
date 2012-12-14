@@ -3,13 +3,13 @@
 Plugin Name: Insert or Embed Articulate Content into Wordpress
 Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
 Description:Quickly embed or insert Articulate content into a post or page.
-Version: 2.00
+Version: 2.10
 Author: Brian Batt
 Author URI: http://www.articulatefreak.com
 */
 
 define ( 'WP_QUIZ_EMBEDER_PLUGIN_DIR', dirname(__FILE__)); // Plugin Directory
-define ( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url(__FILE__)); // Plugin URL (for http requests)
+define ( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url(__FILE__)); // Plugin URL (for http requests) // with forward slash (/).
 
 
 
@@ -50,11 +50,10 @@ add_action( 'wp_ajax_del_dir', 'wp_ajax_del_dir' );
 add_action( 'wp_ajax_rename_dir', 'wp_ajax_rename_dir');
 
 
-function wp_myplugin_media_button($context) {
+function wp_myplugin_media_button() {
 	$wp_myplugin_media_button_image = getPluginUrl().'quiz.png';
-	$wp_myplugin_media_button = ' %s' . '<a href="media-upload.php?type=upload&TB_iframe=true&tab=upload" class="thickbox">
+	echo '<a href="media-upload.php?type=upload&TB_iframe=true&tab=upload" class="thickbox">
   <img src="'.$wp_myplugin_media_button_image.'"  width=15 height=15 /></a>';
-	return sprintf($context, $wp_myplugin_media_button);
 }
 
 function media_upload_quiz_form()
@@ -111,9 +110,15 @@ media_upload_header();
 
 add_action('media_upload_upload','media_upload_upload');
 add_action('media_upload_quiz','media_upload_quiz');
-add_action('media_buttons_context', 'wp_myplugin_media_button');
+add_action( 'media_buttons', 'wp_myplugin_media_button',100);
 
 
 /* added by oneTarek --*/
 add_action('wp_head','quiz_embeder_wp_head');
+
+function quiz_embeder_enqueue_script() {
+	wp_enqueue_script('jquery');
+}    
+ 
+add_action('wp_enqueue_scripts', 'quiz_embeder_enqueue_script');
 ?>

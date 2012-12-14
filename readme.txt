@@ -4,8 +4,8 @@ Contributors: Brian Batt
 Donate link: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
 Tags: articulate, presenter, quizmaker, engage, storyline, insert, embed, iframe
 Requires at least: 2.0.2
-Tested up to: 3.4.1
-Stable tag: 2.00
+Tested up to: 3.5
+Stable tag: 2.10
  
 Quickly embed or insert Articulate content into a post or page.
 
@@ -82,6 +82,12 @@ Yes, we are currently in the process of making this plugin more intuitive.
 The uploaded content is saved into the wp-content / uploads / articulate_uploads folder on your site.  Thus, your uploaded content will not be removed if you delete this plugin.
 
 == Changelog ==
+
+= 2.10 =
+
+Added support for Wordpress 3.5
+Resolved issue in functions.php caused by using PHP short tags
+Resolved some conflicts with jQuery
 
 = 2.00 =
 

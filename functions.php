@@ -58,7 +58,7 @@ function print_detail_form($num, $tab="upload", $file_url="", $dirname="")
 		<input type="hidden" size="40" name="file_url_<?php echo $num ?>" id="file_url_<?php echo $num ?>" value="<?php echo $file_url ?>" />
 		<input type="hidden" size="40" name="dir_name_<?php echo $num ?>" id="dir_name_<?php echo $num ?>" value="<?php echo $dirname ?>" />
 		<?php if($tab=='upload'){ ?>
-		<input type="hidden" id="file_name_<?php echo $num ?>" id="file_name_<?php echo $num ?>" value="" size="20" />
+		<input type="hidden" id="file_name_<?php echo $num ?>" value="" size="20" />
 		<br /><label for="title"><strong>Title:</strong></label> <input type="text" size="20" name="title" id="title" value="" /><br /><br />
 		<?php }?>		
 		<strong>Insert As:</strong><br />
@@ -171,7 +171,7 @@ return $dir['baseurl'] . "/articulate_uploads/";
 }
 function getPluginUrl()
 {
-return WP_PLUGIN_URL."/insert-or-embed-articulate-content-into-wordpress/";
+return plugin_dir_url(__FILE__); #chaned by oneTarek # The URL of the directory that contains the plugin, including a trailing slash ("/")
 }
 function getDirs()
 {
@@ -753,17 +753,15 @@ function quiz_embeder_wp_head()
 {?>
 	<!--QUIZ_EMBEDER START-->
 	<link rel="stylesheet" href="<?php echo WP_QUIZ_EMBEDER_PLUGIN_URL."colorbox/colorbox.css" ;?>" />
-	<!--<script type="text/javascript" src="<?php ?>" ></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo WP_QUIZ_EMBEDER_PLUGIN_URL."colorbox/jquery.colorbox-min.js" ;?>" ></script>
 	<script>
-		$(document).ready(function(){
+		jQuery(document).ready(function($){
 			//Examples of how to assign the ColorBox event to elements
 			$(".colorbox_iframe").colorbox({iframe:true, width:"80%", height:"80%"});
-		});
+		})(jQuery);
 	</script>	
 	<!--QUIZ_EMBEDER END-->
-<?
+<?php
 }
 
 ?>

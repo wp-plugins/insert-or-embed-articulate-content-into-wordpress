@@ -4,7 +4,7 @@ Contributors: Brian Batt
 Donate link: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
 Tags: articulate, presenter, quizmaker, engage, storyline, insert, embed, iframe
 Requires at least: 2.0.2
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: 2.11
  
 Quickly embed or insert Articulate content into a post or page.

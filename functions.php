@@ -720,11 +720,18 @@ function extractZip($fileName,$target,$dir)
          $zip->extractTo($target);
          $zip->close();
 		 $file = getFile($target);
-
+		if($file)
+		{
 		 $arr[0] = 'uploaded'; 
 		 $arr[1] = getUploadsUrl().$dir."/".$file; 
 		 $arr[2] = $dir;
 		 $arr[3] =$file;
+		 }
+		 else
+		 {
+		 $arr[0] ="Please upload Storyline or Studio '09 content. For Studio '13 compatibility, upgrade to the premium plugin at www.articulatefreak.com";
+		 rrmdir($target);
+		 }
          
      } else {
 		$arr[0] ="file upload failed";

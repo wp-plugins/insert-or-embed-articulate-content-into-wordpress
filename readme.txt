@@ -86,6 +86,7 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 = 2.12 =
 
 Added support for Wordpress 3.9
+
 Improved error messaging
 
 = 2.11 =

@@ -1,31 +1,25 @@
 <?php
 /*
-Plugin Name: Insert or Embed Articulate Content into Wordpress
-Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
-Description:Quickly embed or insert Articulate content into a post or page.
-Version: 2.12
+Plugin Name: Insert or Embed Articulate Content into Wordpress Trial
+Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/ ?
+Description: Quickly embed or insert Articulate content into a post or page.  This version allows you to upload 3 content items.  Visit www.articulatefreak.com to upgrade.
+Version: 4.0
 Author: Brian Batt
 Author URI: http://www.articulatefreak.com
 */
-
+if(!session_id()) session_start();
 define ( 'WP_QUIZ_EMBEDER_PLUGIN_DIR', dirname(__FILE__)); // Plugin Directory
-define ( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url(__FILE__)); // Plugin URL (for http requests) // with forward slash (/).
+define ( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url(__FILE__)); // Plugin URL (for http requests)
 
-
-
+global $wpdb;
+$quiz_embeder_group_table=$wpdb->prefix."quiz_embeder_group";
+$quiz_embeder_group_users_table=$wpdb->prefix."quiz_embeder_group_users";
+require_once("settings.php");
 require_once("functions.php");
+include_once(WP_QUIZ_EMBEDER_PLUGIN_DIR."/include/shortcode.php");
 
-add_shortcode( 'iframe_loader', 'iframe_handler' );
 
-function iframe_handler($attr,$content)
-{
-extract($attr);
-return "
 
-<iframe src='$src'
-width='$width' height='$height' frameborder='$border'></iframe>";
-
-}
 
 
 register_activation_hook(__FILE__,'quiz_embeder_install'); 
@@ -41,6 +35,8 @@ function quiz_embeder_install() {
 }
 function quiz_embeder_remove() {
 
+$qz_upload_path=getUploadsPath();
+if(file_exists($qz_upload_path."/.htaccess")){unlink($qz_upload_path."/.htaccess");}
 
 }
 
@@ -59,27 +55,28 @@ function wp_myplugin_media_button() {
 function media_upload_quiz_form()
 {
 	print_tabs();
-	echo "<div style='margin-left:20px;'>";
-	echo "<h2>Upload File</h2>";
-	print_upload();
+	echo '<div class="wrap" style="margin-left:20px;  margin-bottom:50px;">';
+		echo '<div id="icon-upload" class="icon32"><br></div><h2>Upload File</h2>';
+		print_upload();
 	echo "</div>";
 
 }
 function media_upload_quiz_content()
 {
 	print_tabs();
-	echo "<div style='margin-left:20px;'>";
-	echo "<h2>Content Library</h2>";
-	
-	
-	printInsertForm();
-	
+	echo '<div class="wrap" style="margin-left:20px;  margin-bottom:50px;">';
+		echo '<div id="icon-upload" class="icon32"><br></div><h2>Content Library</h2>';
+		printInsertForm();
 	echo "</div>";
 }
+
+
+
 function media_upload_quiz()
 {
 	wp_iframe( "media_upload_quiz_content" );
 }
+
 function media_upload_upload()
 {
 	if($_GET['tab']=='quiz') #I added this technique because: on wordpress 3.4  'media_upload_quiz' action hook does not work.
@@ -98,9 +95,9 @@ function print_tabs()
 	
 	function quiz_tabs($tabs) 
 	{
-	$newtab1 = array('quiz' => 'Content Library');
-	$newtab2 = array('upload' => 'Upload File');
-	return array_merge( $newtab2,$newtab1);
+	$newtab1 = array('upload' => 'Upload File');
+	$newtab2 = array('quiz' => 'Content Library');
+	return array_merge($newtab1,$newtab2);
 	}
 add_filter('media_upload_tabs', 'quiz_tabs');
 media_upload_header();
@@ -114,11 +111,17 @@ add_action( 'media_buttons', 'wp_myplugin_media_button',100);
 
 
 /* added by oneTarek --*/
-add_action('wp_head','quiz_embeder_wp_head');
+//add_action('wp_head','quiz_embeder_wp_head');
+add_action('wp_footer','quiz_embeder_wp_head');
 
 function quiz_embeder_enqueue_script() {
 	wp_enqueue_script('jquery');
 }    
  
 add_action('wp_enqueue_scripts', 'quiz_embeder_enqueue_script');
+
+include_once(WP_QUIZ_EMBEDER_PLUGIN_DIR."/admin_page.php");
+
+
+
 ?>

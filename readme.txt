@@ -47,23 +47,33 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 
 == Changelog ==
 
-=4.0=
+= 4.0 =
 
 Added support for custom lightbox sizing
+
 Added support for custom launch buttons
+
 Added themes
+
 Added the ability to disable scroll bars when you launch with a lightbox
+
 Added support for custom transitions in the default lightbox
+
 Added support for the Nivo lightbox
+
 Added support for custom transitions in the Nivo lightbox
+
 Added a Dashboard that displays on the left side of the Admin panel in Wordpress
+
 Crushed bugs
 
-=3.2=
+Note:  If you are satisfied with the functionality of the previous free version, do not install this update.  Installing this update will put this plugin into a trial mode that will enable you to test the new features.  If you like the new features, you can upgrade to the premium version.
+
+= 3.2 =
 
 Added support for Articulate Studio '13 including Presenter '13, Engage '13, and Quizmaker '13
 
-=2.00=
+= 2.00 =
 
 Added lightbox support via Colorbox
 Added the ability to launch the content with a link or a Launch Presentation button

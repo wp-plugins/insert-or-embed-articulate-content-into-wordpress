@@ -1,10 +1,10 @@
 === Insert or Embed Articulate Content into Wordpress ====
 Contributors: Brian Batt
 Donate link: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin/
-Tags: articulate, presenter, quizmaker, engage, storyline, insert, embed, iframe, studio, storyline 2, elearning
-Requires at least: 3.5.0
+Tags: articulate, presenter, quizmaker, engage, storyline, insert, embed, iframe, studio
+Requires at least: 2.0.2
 Tested up to: 4.1
-Stable tag: 4.0
+Stable tag: 4.1
 Quickly embed or insert Articulate content into a post or page.
 
 == Description ==
@@ -14,6 +14,7 @@ This plugin will add a new toolbar icon (the letter 'a') next to the 'Add Media'
 == Installation ==
 
 1. Upload the 'insert-or-embed-articulate-into-wordpress' folder to the `/wp-content/plugins/` directory
+
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == How to Use ==
@@ -32,7 +33,7 @@ Yes, it works with all versions of Articulate Storyline including Storyline 2.
 
 = Why does the upload never finish or I get a -1 error message? =
 
-In order to resolve this issue, you need to update your php.ini in your wp-admin folder to reflect the following: 
+In order to resolve this issue, you need to update your php.ini file in your wp-admin folder to reflect the following: 
 
 post_max_size = 50M
 
@@ -51,27 +52,21 @@ The uploaded content is saved into the wp-content / uploads / articulate_uploads
 
 == Changelog ==
 
+= 4.1 =
+
+Added multi-site or network support
+
 = 4.0 =
 
 Added support for custom lightbox sizing
-
 Added support for custom launch buttons
-
 Added themes
-
 Added the ability to disable scroll bars when you launch with a lightbox
-
 Added support for custom transitions in the default lightbox
-
 Added support for the Nivo lightbox
-
 Added support for custom transitions in the Nivo lightbox
-
 Added a Dashboard that displays on the left side of the Admin panel in Wordpress
-
 Crushed bugs
-
-Note:  If you are satisfied with the functionality of the previous free version, do not install this update.  Installing this update will put this plugin into a trial mode that will enable you to test the new features.  If you like the new features, you can upgrade to the premium version.
 
 = 3.2 =
 
@@ -102,3 +97,7 @@ Fixed call to jquery
 = 1.0 =
 
 Initial version.
+
+== Upgrade Notice ==
+
+Added multi-site or network support

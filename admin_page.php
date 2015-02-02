@@ -139,7 +139,7 @@ if(isset($_POST['save']))
 				jQuery("#nivo_lightbox_preview").trigger('click');
 
 			}
-			//jQuery.colorbox({href:"https://www.youtube.com/watch?v=AwcIsxpkvM4"}); //This method allows you to call Colorbox without having to assign it to an element.
+			//jQuery.colorbox({href:"http://www.articulate.com"}); //This method allows you to call Colorbox without having to assign it to an element.
 		
 		}
 		
@@ -165,7 +165,7 @@ if(isset($_POST['save']))
 	<label style="width:90px; display:inline-block;" >Lightbox Style</label>
 	<select name="lightbox_script" id="lightbox_script" onchange="show_lightbox_settings()">
 		<option value="colorbox" <?php echo ($opt["lightbox_script"]=="colorbox")?' selected="selected"':""?> >Color Box</option>
-		<option value="nivo_lightbox" <?php echo ($opt["lightbox_script"]=="nivo_lightbox")?' selected="selected"':""?>>Nivo</option>
+		<option value="nivo_lightbox" <?php echo ($opt["lightbox_script"]=="nivo_lightbox")?' selected="selected"':""?>>Nivo Lightbox</option>
 	</select>
 	<h3>Lightbox Settings</h3>
 	<div id="colorbox_settings" <?php echo ($opt["lightbox_script"]=="colorbox")?' style="display:block"':'style="display:none"'?>>
@@ -213,8 +213,8 @@ if(isset($_POST['save']))
 	<label  style="width:90px; display:inline-block;" >Width</label><input type="text" name="width" size="3" maxlength="4" value="<?php echo (intval($opt["width"]))?>" /><select style="margin-top:-2px;" name="width_type"><option value="px" <?php echo ($opt["width_type"]=="px")?' selected="selected"':""?>>px</option><option value="%" <?php echo ($opt["width_type"]=="%")?' selected="selected"':""?>>%</option></select><br />
 	</div>
 	<br /><br />
-	<a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" id="nivo_lightbox_preview" data-lightbox-type="iframe" title="Lightbox Preview: Sample Title (optional)" style="display:none;">Nivo Preview</a>
-	<a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" id="colorbox_preview"  style="display:none;"  title="Lightbox Preview: Sample Title (optional)">Colorbox Preview</a>
+	<a href="https://www.articulate.com" id="nivo_lightbox_preview" data-lightbox-type="iframe" title="Lightbox Preview: Sample Title (optional)" style="display:none;">Nivo Preview</a>
+	<a href="https://www.articulate.com" id="colorbox_preview"  style="display:none;"  title="Lightbox Preview: Sample Title (optional)">Colorbox Preview</a>
 	<input type="button" value="Preview Lightbox" class="button-primary" onclick="preview_lightbox()" /> &nbsp;&nbsp;
     <input type="submit" value="Save" name="save" class="button-primary" />    
 	</td></tr></table>
@@ -235,8 +235,7 @@ if(isset($_POST['save']))
 			<?php }}?>
 		</div>
 		<div><input type="button" class="button" value="Add Button" onclick="add_new_button()" /> &nbsp;&nbsp;
-		<input type="submit" value="Save" name="save" class="button-primary" /> 
-		</div>
+		<input type="submit" value="Save" name="save" class="button-primary" /></div>
 	</div><!--end of right box-->
 	
 	</form>

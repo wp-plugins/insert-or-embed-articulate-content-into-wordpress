@@ -17,10 +17,10 @@ function print_page_navi($num_records)
 				$num_pages; 	#holds the total number of pages
 				$page_size = 15;
 				#get the page index
-				if (empty($_GET[npage]) || !is_numeric($_GET[npage]))
+				if (empty($_GET['npage']) || !is_numeric($_GET['npage']))
 				{$page = 1;}
 				else
-				{$page = $_GET[npage];}
+				{$page = $_GET['npage'];}
 				
 				#caluculate number of pages to display
 				if(($num_records%$page_size))
@@ -763,7 +763,7 @@ if (count($dirs)>2)
 echo '<span style="color:#ff0000; font-size:15px;">The trial version only supports three uploads. Please purchase the full version with unlimited uploads at <a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">www.articulatefreak.com</a></span>';	
 }
 else
-{	
+{
 ?>
 <form enctype="multipart/form-data" id="myForm1" action="admin-ajax.php" method="POST">
 <input type="hidden" name="action" value="quiz_upload" />
@@ -775,7 +775,7 @@ else
 </table>
 </form>
 
-<p><i>Please choose a .zip file that you published with the Articulate software | Maximum upload file size: <strong><?php echo $upload_size_unit; echo $sizes[$u]; ?></strong></i></p>
+<p><i>Please choose a .zip file that you published with the Articulate software | <a href="http://www.articulatefreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">Maximum upload file size</a>: <strong><?php echo $upload_size_unit; echo $sizes[$u]; ?></strong></i></p>
 <img id="media_loading" style='display:none;' src= "<?php echo getPluginUrl() . "loading.gif" ;?>" /><br />
 <?php 
  	print_detail_form(1);
@@ -785,7 +785,7 @@ else
 
 
 <p><b>Need help?  See the screencast below:</b></p>
-<iframe width="600" height="338" src="//www.youtube.com/embed/AwcIsxpkvM4" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/AwcIsxpkvM4" width="600" height="366" frameborder="0"></iframe>
 <p/>
 <p/>
 <iframe src="http://www.articulatefreak.com/wordpresspluginlatest.html" width="600px" frameborder="0">

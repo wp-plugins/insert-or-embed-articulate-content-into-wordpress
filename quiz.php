@@ -2,19 +2,17 @@
 /*
 Plugin Name: Insert or Embed Articulate Content into Wordpress Trial
 Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/ ?
-Description: Quickly embed or insert Articulate content into a post or page.  This version allows you to upload 3 content items.  Visit www.articulatefreak.com to upgrade.
-Version: 4.0
+Description: Quickly embed or insert Articulate content into a post or page
+Version: 4.1
 Author: Brian Batt
 Author URI: http://www.articulatefreak.com
 */
-if(!session_id()) session_start();
+
 define ( 'WP_QUIZ_EMBEDER_PLUGIN_DIR', dirname(__FILE__)); // Plugin Directory
 define ( 'WP_QUIZ_EMBEDER_PLUGIN_URL', plugin_dir_url(__FILE__)); // Plugin URL (for http requests)
 
 global $wpdb;
-$quiz_embeder_group_table=$wpdb->prefix."quiz_embeder_group";
-$quiz_embeder_group_users_table=$wpdb->prefix."quiz_embeder_group_users";
-require_once("settings.php");
+require_once("settings_file.php");
 require_once("functions.php");
 include_once(WP_QUIZ_EMBEDER_PLUGIN_DIR."/include/shortcode.php");
 
@@ -79,14 +77,15 @@ function media_upload_quiz()
 
 function media_upload_upload()
 {
-	if($_GET['tab']=='quiz') #I added this technique because: on wordpress 3.4  'media_upload_quiz' action hook does not work.
-	{
+	/*if($_GET['tab']=='quiz') #I added this technique because: on wordpress 3.4  'media_upload_quiz' action hook does not work.*/
+	if ( isset( $_REQUEST[ 'tab' ] ) && strstr( $_REQUEST[ 'tab' ], 'quiz') ) {
 	wp_iframe( "media_upload_quiz_content" );
 	}
 	else
 	{
 	wp_iframe( "media_upload_quiz_form" );
 	}
+	
 }
 
 function print_tabs()

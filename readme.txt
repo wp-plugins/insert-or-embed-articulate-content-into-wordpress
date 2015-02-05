@@ -11,6 +11,8 @@ Quickly embed or insert Articulate content into a post or page.
 
 This plugin will add a new toolbar icon (the letter 'a') next to the 'Add Media' button on the Edit Post and Edit Page pages.  Upon clicking this toolbar icon, you will have the ability to upload your published Articulate content as a ZIP file.  Once uploaded, the plugin will automatically extract the content, find the approriate .html file, and add code to your post or page that will display your Articulate content as an iframe or a lightbox.
 
+https://www.youtube.com/watch?v=AwcIsxpkvM4
+
 == Installation ==
 
 1. Upload the 'insert-or-embed-articulate-into-wordpress' folder to the `/wp-content/plugins/` directory

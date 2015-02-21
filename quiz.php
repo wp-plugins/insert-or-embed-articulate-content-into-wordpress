@@ -3,7 +3,7 @@
 Plugin Name: Insert or Embed Articulate Content into Wordpress Trial
 Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/ ?
 Description: Quickly embed or insert Articulate content into a post or page
-Version: 4.1
+Version: 4.1.1
 Author: Brian Batt
 Author URI: http://www.articulatefreak.com
 */
@@ -21,7 +21,7 @@ include_once(WP_QUIZ_EMBEDER_PLUGIN_DIR."/include/shortcode.php");
 
 
 register_activation_hook(__FILE__,'quiz_embeder_install'); 
-
+add_action( 'admin_notices', 'quiz_embeder_banner');
 
 register_deactivation_hook( __FILE__, 'quiz_embeder_remove' );
 
@@ -103,10 +103,38 @@ media_upload_header();
 
 }
 
+if ( ! function_exists ( 'quiz_embeder_banner' ) ) {
+	function quiz_embeder_banner() {
+		global $hook_suffix;
+		if ( 'plugins.php' == $hook_suffix ) {
+					?>
+					<div id ="message" class="updated">
+								<?php _e( "Upgrade the <strong>Insert or Embed Articulate Content into Wordpress Trial</strong> plugin to the <strong>Premium</strong> version today!", 'quiz_embeder' ); ?><br />
+								<span><?php _e( "Includes unlimited uploads and premium support! ", 'quiz_embeder' ); ?><a target="_blank" href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/"><?php _e( 'Learn More', 'quiz_embeder' ); ?></a></span>
+					</div>
+					<?php }
+					}
+}
+
+if ( ! function_exists ( 'quiz_embeder_register_plugin_links' ) ) {
+	function quiz_embeder_register_plugin_links( $links, $file ) {
+		$base = plugin_basename(__FILE__);
+		if ( $file == $base ) {
+			if ( ! is_network_admin() )
+			$links[] = '<a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">' . __( 'Buy premium version','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="admin.php?page=articulate_content">' . __( 'Dashboard','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="https://www.youtube.com/watch?v=AwcIsxpkvM4" target="_blank">' . __( 'How to use','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="http://www.articulatefreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">' . __( 'Maximum upload size','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="http://www.articulatefreak.com/contact-us/" target="_blank">' . __( 'Support','quiz_embeder' ) . '</a>';
+		}
+		return $links;
+	}
+}
 
 add_action('media_upload_upload','media_upload_upload');
 add_action('media_upload_quiz','media_upload_quiz');
 add_action( 'media_buttons', 'wp_myplugin_media_button',100);
+add_filter( 'plugin_row_meta', 'quiz_embeder_register_plugin_links', 10, 2 );
 
 
 /* added by oneTarek --*/

@@ -23,6 +23,13 @@ https://www.youtube.com/watch?v=AwcIsxpkvM4
 
 Check out the screencast in the link below to learn how to use this plugin: https://www.youtube.com/watch?v=AwcIsxpkvM4
 
+== Screenshots ==
+
+1. Vintage theme example
+2. Wood table theme example
+3. Upload file
+4. Dashboard
+
 == Frequently Asked Questions ==
 
 = How do I use this to embed Articulate content? =

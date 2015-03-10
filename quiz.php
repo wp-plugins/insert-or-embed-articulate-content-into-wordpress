@@ -21,7 +21,7 @@ include_once(WP_QUIZ_EMBEDER_PLUGIN_DIR."/include/shortcode.php");
 
 
 register_activation_hook(__FILE__,'quiz_embeder_install'); 
-add_action( 'admin_notices', 'quiz_embeder_banner');
+/*add_action( 'admin_notices', 'quiz_embeder_banner');*/
 
 register_deactivation_hook( __FILE__, 'quiz_embeder_remove' );
 
@@ -102,7 +102,7 @@ add_filter('media_upload_tabs', 'quiz_tabs');
 media_upload_header();
 
 }
-
+/*
 if ( ! function_exists ( 'quiz_embeder_banner' ) ) {
 	function quiz_embeder_banner() {
 		global $hook_suffix;
@@ -115,7 +115,7 @@ if ( ! function_exists ( 'quiz_embeder_banner' ) ) {
 					<?php }
 					}
 }
-
+*/
 if ( ! function_exists ( 'quiz_embeder_register_plugin_links' ) ) {
 	function quiz_embeder_register_plugin_links( $links, $file ) {
 		$base = plugin_basename(__FILE__);
@@ -134,7 +134,7 @@ if ( ! function_exists ( 'quiz_embeder_register_plugin_links' ) ) {
 add_action('media_upload_upload','media_upload_upload');
 add_action('media_upload_quiz','media_upload_quiz');
 add_action( 'media_buttons', 'wp_myplugin_media_button',100);
-add_filter( 'plugin_row_meta', 'quiz_embeder_register_plugin_links', 10, 2 );
+/*add_filter( 'plugin_row_meta', 'quiz_embeder_register_plugin_links', 10, 2 );*/
 
 
 /* added by oneTarek --*/

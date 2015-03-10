@@ -29,6 +29,7 @@ Check out the screencast in the link below to learn how to use this plugin: http
 2. Wood table theme example
 3. Upload file
 4. Dashboard
+5. Work with Articulate Presenter, Engage, Quizmaker, Storyline 1, and Storyline 2
 
 == Frequently Asked Questions ==
 

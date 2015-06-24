@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Insert or Embed Articulate Content into Wordpress Trial
-Plugin URI: http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/ ?
+Plugin URI: http://www.elearningfreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/ ?
 Description: Quickly embed or insert Articulate content into a post or page
-Version: 4.1.2
+Version: 4.1.3
 Author: Brian Batt
-Author URI: http://www.articulatefreak.com
+Author URI: http://www.elearningfreak.com
 */
 
 define ( 'WP_QUIZ_EMBEDER_PLUGIN_DIR', dirname(__FILE__)); // Plugin Directory
@@ -110,7 +110,7 @@ if ( ! function_exists ( 'quiz_embeder_banner' ) ) {
 					?>
 					<div id ="message" class="updated">
 								<?php _e( "Upgrade the <strong>Insert or Embed Articulate Content into Wordpress Trial</strong> plugin to the <strong>Premium</strong> version today!", 'quiz_embeder' ); ?><br />
-								<span><?php _e( "Includes unlimited uploads and premium support! ", 'quiz_embeder' ); ?><a target="_blank" href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/"><?php _e( 'Learn More', 'quiz_embeder' ); ?></a></span>
+								<span><?php _e( "Includes unlimited uploads and premium support! ", 'quiz_embeder' ); ?><a target="_blank" href="http://www.elearningfreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/"><?php _e( 'Learn More', 'quiz_embeder' ); ?></a></span>
 					</div>
 					<?php }
 					}
@@ -121,11 +121,11 @@ if ( ! function_exists ( 'quiz_embeder_register_plugin_links' ) ) {
 		$base = plugin_basename(__FILE__);
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
-			$links[] = '<a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">' . __( 'Buy premium version','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="http://www.elearningfreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">' . __( 'Buy premium version','quiz_embeder' ) . '</a>';
 			$links[] = '<a href="admin.php?page=articulate_content">' . __( 'Dashboard','quiz_embeder' ) . '</a>';
 			$links[] = '<a href="https://www.youtube.com/watch?v=AwcIsxpkvM4" target="_blank">' . __( 'How to use','quiz_embeder' ) . '</a>';
-			$links[] = '<a href="http://www.articulatefreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">' . __( 'Maximum upload size','quiz_embeder' ) . '</a>';
-			$links[] = '<a href="http://www.articulatefreak.com/contact-us/" target="_blank">' . __( 'Support','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="http://www.elearningfreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">' . __( 'Maximum upload size','quiz_embeder' ) . '</a>';
+			$links[] = '<a href="http://www.elearningfreak.com/contact-us/" target="_blank">' . __( 'Support','quiz_embeder' ) . '</a>';
 		}
 		return $links;
 	}

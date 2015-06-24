@@ -760,7 +760,7 @@ if ( $u < 0 ) {
 $dirs = getDirs();
 if (count($dirs)>2)
 {
-echo '<span style="color:#ff0000; font-size:15px;">The trial version only supports three uploads. Please purchase the full version with unlimited uploads at <a href="http://www.articulatefreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">www.articulatefreak.com</a></span>';	
+echo '<span style="color:#ff0000; font-size:15px;">The trial version only supports three uploads. Please purchase the full version with unlimited uploads at <a href="http://www.elearningfreak.com/presenter/insert-or-embed-articulate-content-into-wordpress-plugin-premium/" target="_blank">www.elearningfreak.com</a></span>';	
 }
 else
 {
@@ -775,7 +775,7 @@ else
 </table>
 </form>
 
-<p><i>Please choose a .zip file that you published with the Articulate software | <a href="http://www.articulatefreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">Maximum upload file size</a>: <strong><?php echo $upload_size_unit; echo $sizes[$u]; ?></strong></i></p>
+<p><i>Please choose a .zip file that you published with the Articulate software | <a href="http://www.elearningfreak.com/uncategorized/increase-maximum-upload-file-size/" target="_blank">Maximum upload file size</a>: <strong><?php echo $upload_size_unit; echo $sizes[$u]; ?></strong></i></p>
 <img id="media_loading" style='display:none;' src= "<?php echo getPluginUrl() . "loading.gif" ;?>" /><br />
 <?php 
  	print_detail_form(1);
@@ -788,7 +788,7 @@ else
 <iframe src="https://www.youtube.com/embed/AwcIsxpkvM4" width="600" height="366" frameborder="0"></iframe>
 <p/>
 <p/>
-<iframe src="http://www.articulatefreak.com/wordpresspluginlatest.html" width="600px" frameborder="0">
+<iframe src="http://www.elearningfreak.com/wordpresspluginlatest.html" width="600px" frameborder="0">
 </iframe><p/>
 
 
@@ -859,7 +859,27 @@ echo json_encode($arr);
 	
 die();
 }
-
+#check if quiz is in a folder as many times as it takes    @anthonysbrown
+function wp_ajax_quiz_check_folder($dir){
+	
+	$arr = scandir($dir);
+	foreach($arr as $key=>$folder){
+		
+		if($folder != '.' && $folder != '..'){
+			$structure[] = $folder;
+		}
+	}
+	
+	if(count($structure) == 1){
+		$sub_folder = $dir.'/'.$structure[0].'/';
+		rename($dir, $dir.'_temp');
+		rename($dir.'_temp/'.$structure[0].'/', $dir);
+		rmdir($dir.'_temp');
+		
+		wp_ajax_quiz_check_folder($dir);
+	}
+	
+}
 function wp_ajax_quiz_upload()
 {
 $arr = array();
@@ -892,11 +912,13 @@ $index = count($dir) -1;
 			$target .= $r;
 			$dir[0] .= $r;
 			}
-			if (!empty($file))
+if (!empty($file)){
 			$arr = extractZip($file,$target,$dir[0]);
-			else
+
+
+			}else{
 			$arr[0] ="The uploaded file is larger than your server allows. Contact your hosting provider to increase the size.";
-		
+			}
 		}
 echo json_encode($arr);
 die();
@@ -909,6 +931,8 @@ function extractZip($fileName,$target,$dir)
      if ($res === TRUE) {
          $zip->extractTo($target);
          $zip->close();
+#check if quiz is in a folder as many times as it takes    @anthonysbrown
+		 wp_ajax_quiz_check_folder($target);
 		 $file = getFile($target);
 
 		 $arr[0] = 'uploaded'; 
